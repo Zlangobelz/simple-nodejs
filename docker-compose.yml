@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  nodejs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: simple-nodejs-api
+    env_file: .env
+    ports:
+      - "${NODE_HOST_PORT}:${NODE_CONTAINER_PORT}"
+    volumes:
+      - .:/var/www
+  db:
+    image: mysql:5.7
+    container_name: simple-nodejs-db
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - ${MYSQL_HOST_PORT}:${MYSQL_CONTAINER_PORT}
+    volumes:
+      - simple-node-js-db:/var/lib/mysql
+volumes:
+  simple-node-js-db:
