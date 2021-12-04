@@ -1,5 +1,3 @@
-import path from 'path';
-
 export default {
     client: 'mysql',
     version: '5.7',

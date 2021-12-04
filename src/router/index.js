@@ -5,8 +5,8 @@ import {default as registerRouter} from "./routes/register/index.js";
 
 const router = new Router();
 
-router.use('/', profileRouter);
-router.use('/', authRouter);
-router.use('/', registerRouter);
+router.use('/api', profileRouter);
+router.use('/api', authRouter);
+router.use('/api', registerRouter);
 
 export default router;
