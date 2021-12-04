@@ -6,6 +6,8 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: simple-nodejs-api
+    environment:
+       JWT_TOKEN_KEY: ${JWT_TOKEN_KEY}
     env_file: .env
     ports:
       - "${NODE_HOST_PORT}:${NODE_CONTAINER_PORT}"

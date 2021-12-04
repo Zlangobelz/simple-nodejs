@@ -9,7 +9,7 @@ export async function create({email, password}, trx) {
     }
     const encrypted = await hashPassword(password);
 
-    return Account.query(trx).insert({email, password: encrypted});
+    return Account.query(trx).insert({email: email.toLowerCase(), password: encrypted});
 }
 
 export async function setProfile({email, profileId}, trx) {

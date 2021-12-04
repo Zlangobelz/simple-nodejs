@@ -1,10 +1,8 @@
 import {Router} from 'express';
+import {loginAction} from "../../../http/controllers/authController.js";
 
 const router = new Router();
 
-//TODO: change to post
-router.get('/login', function (req, res) {
-    res.send('Login route');
-});
+router.post('/login', loginAction);
 
 export default router;

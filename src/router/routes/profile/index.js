@@ -1,9 +1,9 @@
 import {Router} from 'express';
+import authenticate from "../../../http/middlewares/authenticate.js";
+import {getMeAction} from "../../../http/controllers/profileController.js";
 
 const router = new Router();
 
-router.get('/get', function (req, res) {
-    res.send('Get me route');
-});
+router.get('/get', authenticate, getMeAction);
 
 export default router;

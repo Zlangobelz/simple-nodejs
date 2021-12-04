@@ -1,6 +1,8 @@
 import {create as createAccount, setProfile as setAccountProfile} from "../account/index.js";
 import {create as createProfile} from "../profile/index.js";
+//TODO: can it be better?
 import {Model} from 'objection';
+import {generateJWTToken} from "../auth/index.js";
 
 export async function register(user) {
     const trx = await Model.knex().transaction();
@@ -12,6 +14,7 @@ export async function register(user) {
         await trx.commit();
 
         account.profile = profile;
+        account.token = generateJWTToken(user.email);
 
         return account;
     } catch (e) {

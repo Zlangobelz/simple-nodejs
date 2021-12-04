@@ -1,0 +1,97 @@
+{
+	"info": {
+		"_postman_id": "4a890677-d737-4ff8-adbe-41244b831f9c",
+		"name": "Simple nodejs auth api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\": \"testemail@gmail.com\", \"password\": \"testik\", \"username\": \"Ivan\", \"firstname\": \"Ivanov\", \"lastname\": \"ivanko_ivanov\"}"
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/api/register",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\": \"testemail@gmail.com\", \"password\": \"testik\"}"
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/api/login",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get me",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{auth_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}:{{port}}/api/get",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"get"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -13,3 +13,7 @@ export async function create({firstname, lastname, username}, trx) {
 export async function getByUsername(username) {
     return profileRepository.getByUsername(username);
 }
+
+export async function getById(id) {
+    return profileRepository.getById(id);
+}
